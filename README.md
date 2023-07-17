@@ -1,8 +1,6 @@
 # Project Templify
 
 Generate project files based on templates. 
-Certainly! Here's a documentation for the usage of your project:
-
 
 ### Prerequisites
 Before using the project, make sure you have the following prerequisites installed:
@@ -21,7 +19,7 @@ npm install
 ```
 
 ### Configuration
-1. Open the `config.json` file located in the project's root directory.
+1. Open the `.templify.json` file located in the project's root directory.
 2. Modify the configuration according to your needs. The file structure should be as follows:
 
 ```json
