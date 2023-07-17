@@ -1,6 +1,6 @@
 {
   "name": "project-templify",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Generate new folder structures with files",
   "main": "dist/index.js",
   "author": "Isaac Martinez",
@@ -13,6 +13,23 @@
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "publish": "yarn build; npm publish --access public"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/isaacismaelx14/project-templify"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "keywords": [
+    "project",
+    "templify",
+    "template",
+    "generator",
+    "cli",
+    "typescript",
+    "javascript",
+    "nodejs"
+  ],
   "devDependencies": {
     "@types/chalk": "^2.2.0",
     "@types/node": "^20.4.2",
