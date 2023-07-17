@@ -85,6 +85,9 @@ const runCommand = async (
       if (!fs.existsSync(folderPath)) {
         fs.mkdirSync(folderPath, { recursive: true });
       }
+
+      fs.writeFileSync(path.join(folderPath, file.name), file.template);
+      return;
     }
 
     fs.writeFileSync(path.join(command.path, file.name), file.template);
@@ -113,7 +116,7 @@ function main() {
   }
 
   cli.help();
-  cli.version('0.0.6');
+  cli.version('0.0.7');
   cli.parse();
 }
 

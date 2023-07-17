@@ -1,6 +1,6 @@
 {
   "name": "project-templify",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Generate new folder structures with files",
   "main": "dist/index.js",
   "author": "Isaac Martinez",
