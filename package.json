@@ -1,0 +1,35 @@
+{
+  "name": "project-templify",
+  "version": "0.0.1",
+  "description": "Generate new folder structures with files",
+  "main": "dist/index.js",
+  "author": "Isaac Martinez",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p .",
+    "dev": "npx ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/index.js",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
+  },
+  "devDependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/node": "^20.4.2",
+    "@types/yargs": "^17.0.24",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "5.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "cac": "^6.7.14",
+    "handlebars": "^4.7.7",
+    "yesno": "^0.4.0"
+  },
+  "bin": {
+    "templify": "./bin/index.js"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "commands": [
+    {
+      "name": "hello",
+      "path": "src/components/{{name}}",
+      "description": "Create a hello world",
+      "params": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "files": [
+        {
+          "name": "{{name}}.tsx",
+          "template": "component.tsx.hbs"
+        },
+        {
+          "name": "{{name}}.config.ts",
+          "template": "config.ts.hbs"
+        }
+      ]
+    }
+  ]
+}
