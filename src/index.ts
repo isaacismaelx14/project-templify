@@ -87,28 +87,25 @@ function main() {
   const config = readConfigFile();
   const cli = cac();
 
-  if (!config) {
-    console.info('No config file found');
-    process.exit(0);
+  if (config) {
+    checkConfig(config);
+
+    config.commands.forEach((command) => {
+      cli
+        .command(
+          `${command.name} ${command.params
+            .map((param) => `<${param.name}>`)
+            .join(' ')}`,
+          command.description || '',
+        )
+        .action((...params) => {
+          runCommand(command, params);
+        });
+    });
   }
 
-  checkConfig(config);
-
-  config.commands.forEach((command) => {
-    cli
-      .command(
-        `${command.name} ${command.params
-          .map((param) => `<${param.name}>`)
-          .join(' ')}`,
-        command.description || '',
-      )
-      .action((...params) => {
-        runCommand(command, params);
-      });
-  });
-
   cli.help();
-  cli.version('0.0.4');
+  cli.version('0.0.5');
   cli.parse();
 }
 

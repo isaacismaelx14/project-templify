@@ -3,29 +3,23 @@
 Generate project files based on templates. 
 
 ### Prerequisites
-Before using the project, make sure you have the following prerequisites installed:
 
 - Node.js (version 16 or higher)
 
 ### Installation
-To install the project, follow these steps:
-
-1. Clone the project repository from the source.
-2. Navigate to the project directory.
-3. Run the following command to install the dependencies:
-
 ```
-npm install
+npm i -g project-templify
 ```
 
 ### Configuration
+
+You can see an example of the configuration file [here](/example/.templify.json).
+
 1. Open the `.templify.json` file located in the project's root directory.
 2. Modify the configuration according to your needs. The file structure should be as follows:
 
 ```json
 {
-  "templatePath": "<TEMPLATE_DIRECTORY_PATH>",
-  "configFile": "<CONFIG_FILE_NAME>",
   "commands": [
     {
       "name": "<COMMAND_NAME>",
@@ -35,7 +29,7 @@ npm install
         {
           "name": "<PARAM_NAME>",
           "type": "<PARAM_TYPE>",
-          "required": <true/false>
+          "required": true | false
         }
       ],
       "files": [
@@ -49,8 +43,6 @@ npm install
 }
 ```
 
-- `<TEMPLATE_DIRECTORY_PATH>`: The path to the directory containing your file templates.
-- `<CONFIG_FILE_NAME>`: The name of the configuration file (e.g., `config.json`).
 - `<COMMAND_NAME>`: The name of the command.
 - `<COMMAND_PATH>`: The path where the command will be executed.
 - `<COMMAND_DESCRIPTION>`: The description of the command.
@@ -58,7 +50,12 @@ npm install
 - `<PARAM_TYPE>`: The type of the command parameter.
 - `<true/false>`: Specify whether the parameter is required (`true`) or optional (`false`).
 - `<FILE_NAME>`: The name of the file to be created.
-- `<FILE_TEMPLATE>`: The template content of the file.
+- `<FILE_TEMPLATE>`: The template content of the file. All file templates should be saved in the `.templify` folder.
+
+## Save your template files
+
+1. Create a folder named `.templify` in the project's root directory.
+2. Save your template files in the `.templify` folder.
 
 ### Usage
 To use the project, follow these steps:
@@ -68,7 +65,7 @@ To use the project, follow these steps:
 3. Run the following command:
 
 ```
-npm start <COMMAND_NAME> <PARAM_VALUE_1> <PARAM_VALUE_2> ...
+templify <COMMAND_NAME> <PARAM_VALUE_1> <PARAM_VALUE_2> ...
 ```
 
 - `<COMMAND_NAME>`: The name of the command you want to execute.
