@@ -15,6 +15,7 @@ interface Param {
 export interface File {
   name: string;
   template: string;
+  folder?: string;
 }
 
 interface Import {

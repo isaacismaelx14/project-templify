@@ -35,7 +35,8 @@ You can see an example of the configuration file [here](/example/.templify.json)
       "files": [
         {
           "name": "<FILE_NAME>",
-          "template": "<FILE_TEMPLATE>"
+          "template": "<FILE_TEMPLATE>",
+          "folder": "<FILE_FOLDER-OPTIONAL>"
         }
       ]
     }
@@ -51,6 +52,7 @@ You can see an example of the configuration file [here](/example/.templify.json)
 - `<true/false>`: Specify whether the parameter is required (`true`) or optional (`false`).
 - `<FILE_NAME>`: The name of the file to be created.
 - `<FILE_TEMPLATE>`: The template content of the file. All file templates should be saved in the `.templify` folder.
+- `<FILE_FOLDER-OPTIONAL>`: The folder where the file will be created. If not specified, the file will be created in the command path.
 
 ## Save your template files
 

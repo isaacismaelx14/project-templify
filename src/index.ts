@@ -35,6 +35,7 @@ const transformFileData = (file: File[], params: object) => {
         ...file,
         name: Parser(file.name, params),
         template: Parser(file.template, params),
+        folder: file.folder ? Parser(file.folder, params) : '',
       };
     })
     .map((file) => {
@@ -79,6 +80,13 @@ const runCommand = async (
 
   console.info(`Creating files in ${command.path}`);
   files.forEach((file) => {
+    if (file.folder) {
+      const folderPath = path.join(command.path, file.folder);
+      if (!fs.existsSync(folderPath)) {
+        fs.mkdirSync(folderPath, { recursive: true });
+      }
+    }
+
     fs.writeFileSync(path.join(command.path, file.name), file.template);
   });
 };
@@ -105,7 +113,7 @@ function main() {
   }
 
   cli.help();
-  cli.version('0.0.5');
+  cli.version('0.0.6');
   cli.parse();
 }
 
