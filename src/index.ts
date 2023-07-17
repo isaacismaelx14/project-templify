@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import * as fs from 'fs';
 import * as path from 'path';
 import type { CommandConfig, File } from './types';
@@ -9,6 +11,8 @@ import * as yesno from 'yesno';
 const TEMPLATE_PATH = appConfig.templatePath;
 
 const readConfigFile = () => {
+  if (!fs.existsSync(`./${appConfig.configFile}`)) return;
+
   const config = fs.readFileSync(`./${appConfig.configFile}`, 'utf8');
   return JSON.parse(config) as CommandConfig;
 };
@@ -83,6 +87,11 @@ function main() {
   const config = readConfigFile();
   const cli = cac();
 
+  if (!config) {
+    console.info('No config file found');
+    process.exit(0);
+  }
+
   checkConfig(config);
 
   config.commands.forEach((command) => {
@@ -99,7 +108,7 @@ function main() {
   });
 
   cli.help();
-  cli.version('0.0.2');
+  cli.version('0.0.3');
   cli.parse();
 }
 
