@@ -116,7 +116,7 @@ function main() {
   }
 
   cli.help();
-  cli.version('0.0.7');
+  cli.version('0.0.8');
   cli.parse();
 }
 
